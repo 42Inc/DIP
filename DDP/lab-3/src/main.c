@@ -158,12 +158,10 @@ int main(int argc, char **argv)
     MPI_Barrier(comm);
 
    if (rank >= last_count) {
-#if 0
-    MPI_Recv(NULL, 0, MPI_INT, next, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+#if 1
+    MPI_Recv(NULL, 0, MPI_INT, rank == last_count ? MPI_PROC_NULL : rank - 1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     ds_print_clock(ds);
-    MPI_Ssend(NULL, 0, MPI_INT, prev 0, MPI_COMM_WORLD);
-  }
-  MPI_Barrier(MPI_COMM_WORLD);
+    MPI_Ssend(NULL, 0, MPI_INT, rank == commsize - 1 ? MPI_PROC_NULL : rank + 1, 0, MPI_COMM_WORLD);
 #else
   ds_print_clock(ds);
 #endif
