@@ -51,7 +51,7 @@ void ds_event(ds_t *ds, char *event)
 
 int ds_send(ds_t *ds, void *buf, int count, MPI_Datatype datatype, int dest, int tag)
 {
-    if (dest == -1) return 0;
+    if (dest < 0) return 0;
     int userbuf_size, clockbuf_size, packbuf_size;
     MPI_Pack_size(count, datatype, ds->comm, &userbuf_size);
     MPI_Pack_size(ds->nprocs, MPI_INT, ds->comm, &clockbuf_size);
@@ -70,7 +70,7 @@ int ds_send(ds_t *ds, void *buf, int count, MPI_Datatype datatype, int dest, int
 
 int ds_recv(ds_t *ds, void *buf, int count, MPI_Datatype datatype, int src, int tag)
 {
-    if (src == -1) return 0;
+    if (src < 0) return 0;
     int userbuf_size, clockbuf_size, packbuf_size, comm_size;
     MPI_Pack_size(count, datatype, ds->comm, &userbuf_size);
     MPI_Pack_size(ds->nprocs, MPI_INT, ds->comm, &clockbuf_size);

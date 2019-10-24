@@ -1,0 +1,80 @@
+24/31 [23 25]
+27/31 [26 28]
+28/31 [27 29]
+26/31 [25 27]
+29/31 [28 30]
+30/31 [29 -1]
+25/31 [24 26]
+0/31 [-1 1]
+1/31 [0 2]
+4/31 [3 5]
+7/31 [6 8]
+2/31 [1 3]
+6/31 [5 7]
+5/31 [4 6]
+3/31 [2 4]
+13/31 [12 14]
+14/31 [13 15]
+15/31 [14 16]
+8/31 [7 9]
+9/31 [8 10]
+10/31 [9 11]
+11/31 [10 12]
+12/31 [11 13]
+16/31 [15 17]
+17/31 [16 18]
+19/31 [18 20]
+21/31 [20 22]
+22/31 [21 23]
+23/31 [22 24]
+20/31 [19 21]
+18/31 [17 19]
+proc 0 event '0-A' time 1
+proc 0 event '0-E' time 2
+proc 1 event '1-E' time 2
+proc 2 event '2-E' time 2
+proc 3 event '3-E' time 2
+proc 4 event '4-E' time 2
+proc 5 event '5-E' time 2
+proc 6 event '6-E' time 2
+proc 7 event '7-E' time 2
+proc 8 event '8-E' time 2
+proc 9 event '9-E' time 2
+proc 10 event '10-E' time 2
+proc 11 event '11-E' time 2
+proc 12 event '12-E' time 2
+proc 13 event '13-E' time 2
+proc 14 event '14-E' time 2
+proc 15 event '15-E' time 2
+proc 16 event '16-E' time 2
+proc 17 event '17-E' time 2
+proc 18 event '18-E' time 2
+proc 19 event '19-E' time 2
+proc 20 event '20-E' time 2
+proc 21 event '21-E' time 2
+proc 22 event '22-E' time 2
+proc 23 event '23-E' time 2
+proc 24 event '24-E' time 2
+proc 25 event '25-E' time 2
+proc 26 event '26-E' time 2
+proc 27 event '27-E' time 2
+proc 28 event '28-E' time 2
+proc 29 event '29-E' time 2
+proc 30 event '30-E' time 2
+proc 30/31 clock: 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+proc 15/31 clock: 2 3 2 3 2 2 2 3 2 2 2 2 2 2 2 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+proc 16/31 clock: 2 3 2 3 2 2 2 3 2 2 2 2 2 2 2 2 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+proc 17/31 clock: 2 3 2 3 2 2 2 2 3 2 2 2 2 2 2 2 2 3 0 0 0 0 0 0 0 0 0 0 0 0 0 
+proc 18/31 clock: 2 3 2 3 2 2 2 2 3 2 2 2 2 2 2 2 2 2 3 0 0 0 0 0 0 0 0 0 0 0 0 
+proc 19/31 clock: 2 3 2 2 3 2 2 2 2 3 2 2 2 2 2 2 2 2 2 3 0 0 0 0 0 0 0 0 0 0 0 
+proc 20/31 clock: 2 3 2 2 3 2 2 2 2 3 2 2 2 2 2 2 2 2 2 2 3 0 0 0 0 0 0 0 0 0 0 
+proc 21/31 clock: 2 3 2 2 3 2 2 2 2 2 3 2 2 2 2 2 2 2 2 2 2 3 0 0 0 0 0 0 0 0 0 
+proc 22/31 clock: 2 3 2 2 3 2 2 2 2 2 3 2 2 2 2 2 2 2 2 2 2 2 3 0 0 0 0 0 0 0 0 
+proc 23/31 clock: 2 2 3 2 2 3 2 2 2 2 2 3 2 2 2 2 2 2 2 2 2 2 2 3 0 0 0 0 0 0 0 
+proc 24/31 clock: 2 2 3 2 2 3 2 2 2 2 2 3 2 2 2 2 2 2 2 2 2 2 2 2 3 0 0 0 0 0 0 
+proc 25/31 clock: 2 2 3 2 2 3 2 2 2 2 2 2 3 2 2 2 2 2 2 2 2 2 2 2 2 3 0 0 0 0 0 
+proc 26/31 clock: 2 2 3 2 2 3 2 2 2 2 2 2 3 2 2 2 2 2 2 2 2 2 2 2 2 2 3 0 0 0 0 
+proc 27/31 clock: 2 2 3 2 2 2 3 2 2 2 2 2 2 3 2 2 2 2 2 2 2 2 2 2 2 2 2 3 0 0 0 
+proc 28/31 clock: 2 2 3 2 2 2 3 2 2 2 2 2 2 3 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 0 0 
+proc 29/31 clock: 2 2 3 2 2 2 3 2 2 2 2 2 2 2 3 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 0 
+proc 30/31 clock: 2 2 3 2 2 2 3 2 2 2 2 2 2 2 3 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 
