@@ -53,14 +53,15 @@ int main(int argc, char **argv)
                 message[1] = rank;
             }
             phase++;
-            printf("Phase: %d, Rank:  %d, Identifier: %d, Status: ", phase, rank, id);
+            printf("Phase: %d, Rank:  %d, Identifier: %d, [%d] Status: ", phase, rank, id, coordinator);
             if (state == STATE_ACTIVE)
                 printf("Active\n");
             else
                 printf("Passive\n");
         }
+        printf("[%d %d]\n", rank, coordinator);
         next = (rank + 1) % size;
-        MPI_Send(message, 3, MPI_INT, next, 0, MPI_COMM_WORLD);
+        MPI_Send(message, 3, MPI_INT, coordinator == rank ? MPI_PROC_NULL : next, 0, MPI_COMM_WORLD);
     }
 
     if (is_leader) {
@@ -72,10 +73,13 @@ int main(int argc, char **argv)
         id = 0;
         MPI_Allreduce(&is_leader, &id, 1, MPI_INT, MPI_BOR, MPI_COMM_WORLD);
     }
+
     MPI_Barrier(MPI_COMM_WORLD);
+
     MPI_Recv(NULL, 0, MPI_INT, rank == 0 ? MPI_PROC_NULL : rank - 1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     printf("Process %d known a leader (id %d)\n", rank, id);
     MPI_Ssend(NULL, 0, MPI_INT, rank == size - 1 ? MPI_PROC_NULL : rank + 1, 0, MPI_COMM_WORLD);
+
     MPI_Finalize();
     return 0;
 }
