@@ -19,7 +19,8 @@ int main(int argc, char **argv)
     enum { STATE_PASSIVE, STATE_ACTIVE } state;
     int phase = 0, coordinator = -1, message[3];
     int is_elected = 0, is_leader = 0;
-    int id, recv_id;
+    int id = 0;
+    int recv_id = 0;
 
     state = STATE_PASSIVE;
     id = rank;
@@ -64,9 +65,11 @@ int main(int argc, char **argv)
 
     if (is_leader) {
         printf("Process %d is a leader (id %d)\n", rank, id);
+        id = 0;
         MPI_Allreduce(&rank, &id, 1, MPI_INT, MPI_BOR, MPI_COMM_WORLD);
         // Bcast leader to all
     } else {
+        id = 0;
         MPI_Allreduce(&is_leader, &id, 1, MPI_INT, MPI_BOR, MPI_COMM_WORLD);
     }
     MPI_Barrier(MPI_COMM_WORLD);

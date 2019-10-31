@@ -1,9 +1,9 @@
 
 #PBS -N MPI
-#PBS -l nodes=1:ppn=8
+#PBS -l nodes=3:ppn=8
 #PBS -j oe
 #PBS -q debug
 
 cd $PBS_O_WORKDIR
 
-/opt/mpich/bin/mpirun ./bin/main 2
+/opt/mpich/bin/mpirun ./bin/main 11
