@@ -1,21 +1,18 @@
-prog := particles
-prog_objs := particles.o
+CC = gcc
+CFLAGS = -g3 -O0  -msse -mavx2 -lm
 
-CC := gcc
-CFLAGS := -std=c99 -Wall -O2 -msse
-LDFLAGS := -lm
+all: MAIN
 
-.PHONY: all clean
+MAIN: ./obj/main.o ./obj/main_saxpy.o
+	$(CC) ./obj/main.o -o ./bin/main $(CFLAGS)
+	$(CC) ./obj/main_saxpy.o -o ./bin/saxpy $(CFLAGS)
 
-all: $(prog)
+./obj/main.o: ./src/main.c
+	$(CC) -c ./src/main.c -o ./obj/main.o $(CFLAGS)
 
-$(prog): $(prog_objs)
-	$(CC) -o $@ $^ $(LDFLAGS)
+./obj/main_saxpy.o: ./src/main_saxpy.c
+	$(CC) -c ./src/main_saxpy.c -o ./obj/main_saxpy.o $(CFLAGS)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-particles.o: particles.c
 
 clean:
-	@rm -rf *.o $(prog)
+	rm ./obj/*.o
