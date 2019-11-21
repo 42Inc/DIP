@@ -109,7 +109,7 @@ int main(int argc, char **argv)
     int next = rank == (commsize - 1) ?  MPI_PROC_NULL : rank + 1;
     int prev = rank == 0 ? MPI_PROC_NULL : (rank - 1 + commsize) % commsize;
     char *buff = malloc(16 * sizeof(char));
-    if (!buff) 
+    if (!buff)
       MPI_Abort(comm, 1);
 
     fprintf (stdout, "%d/%d [%d %d]\n",rank, commsize, prev, next);
@@ -194,4 +194,3 @@ int main(int argc, char **argv)
     MPI_Finalize();
     return  0;
 }
-

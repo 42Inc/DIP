@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
   int next = MPI_PROC_NULL;
   int prev = MPI_PROC_NULL;
   for (i = 0; i < k; ++i) {
-    if (k == 1) {
+    if (i == 1) {
       prev = (rank > 0) ? ((rank - 1 + commsize) % commsize) : MPI_PROC_NULL;
       next = (rank != commsize - 1) ? (rank + 1) % commsize : MPI_PROC_NULL;
     } else if (i == 0) {
@@ -28,10 +28,10 @@ int main(int argc, char *argv[])
     } else if (i == k - 1){
       next = (rank != commsize - 1) ? (rank + 1) % commsize : MPI_PROC_NULL;
       prev = (rank - 1 + commsize) % commsize;
-    } else {
-      next = (rank + 1) % commsize;
-      prev = (rank - 1 + commsize) % commsize;
-    }
+    } //else {
+    //   next = (rank + 1) % commsize;
+    //   prev = (rank - 1 + commsize) % commsize;
+    // }
 //    MPI_Recv(NULL, 0, MPI_INT, (rank > 0) ? rank - 1 : MPI_PROC_NULL, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     MPI_Recv(NULL, 0, MPI_INT, prev, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     __asm__ volatile ("":::"memory");
