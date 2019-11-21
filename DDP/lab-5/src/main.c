@@ -31,7 +31,7 @@ void distance(float *x, float *y, float *z, float *d, int n) {
 }
 
 void distance_vec_avx(float *x, float *y, float *z, float *d, int n) {
-/*
+
   __m256 *xx = (__m256 *)x;
   __m256 *yy = (__m256 *)y;
   __m256 *zz = (__m256 *)z;
@@ -48,7 +48,7 @@ void distance_vec_avx(float *x, float *y, float *z, float *d, int n) {
   for (int i = k * 8; i < n; i++) {
     d[i] = sqrtf(x[i] * x[i] + y[i] * y[i] + z[i] * z[i]);
   }
-*/
+
 }
 
 void distance_vec_sse(float *x, float *y, float *z, float *d, int n) {
@@ -137,7 +137,7 @@ double run_vectorized() {
   }
 
   printf("Elapsed time (vectorized_sse): %.6f sec.\n", t_sse);
-  /*
+  
   init_particles(x, y, z, n);
 
   double t_avx = wtime();
@@ -157,13 +157,13 @@ double run_vectorized() {
     }
   }
   printf("Elapsed time (vectorized_avx): %.6f sec.\n", t_sse);
-  */
+  
   free(x);
   free(y);
   free(z);
   free(d);
-  return t_sse;
-//  return t_sse > t_avx ? t_avx : t_sse;
+//  return t_sse;
+  return t_sse > t_avx ? t_avx : t_sse;
 }
 
 int main(int argc, char **argv) {

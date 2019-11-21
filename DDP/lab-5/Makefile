@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -g3 -O0 -std=gnu99 -lm -msse
+CFLAGS = -g3 -O0 -std=gnu99 -lm -msse -mavx2
 
 all: MAIN
 
