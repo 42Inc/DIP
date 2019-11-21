@@ -109,7 +109,7 @@ double run_scalar() {
   return t;
 }
 
-double run_vectorized() {
+double* run_vectorized() {
   float *d, *x, *y, *z;
 
   x = _mm_malloc(sizeof(*x) * n, 32);
@@ -137,7 +137,7 @@ double run_vectorized() {
   }
 
   printf("Elapsed time (vectorized_sse): %.6f sec.\n", t_sse);
-  
+
   init_particles(x, y, z, n);
 
   double t_avx = wtime();
@@ -156,22 +156,24 @@ double run_vectorized() {
       break;
     }
   }
-  printf("Elapsed time (vectorized_avx): %.6f sec.\n", t_sse);
-  
+  printf("Elapsed time (vectorized_avx): %.6f sec.\n", t_avx);
+  double *t = xmalloc(2 * sizeof(double));
+  t[0] = t_sse;
+  t[1] = t_avx;
   free(x);
   free(y);
   free(z);
   free(d);
 //  return t_sse;
-  return t_sse > t_avx ? t_avx : t_sse;
+  return t;
 }
 
 int main(int argc, char **argv) {
   printf("Particles: n = %d\n", n);
   double tscalar = run_scalar();
-  double tvec = run_vectorized();
+  double *tvec = run_vectorized();
 
-  printf("Speedup: %.2f\n", tscalar / tvec);
+  printf("Speedup: %.2f/%.2f\n", tscalar / tvec[0], tscalar / tvec[1]);
 
   return 0;
 }
