@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -g3 -O0 -std=gnu99 -lm -msse -mavx2
+CFLAGS = -g3 -O0  -msse -mavx2 -lm
 
 all: MAIN
 
@@ -7,7 +7,7 @@ MAIN: ./obj/main.o
 	$(CC) ./obj/main.o -o ./bin/main $(CFLAGS)
 
 ./obj/main.o: ./src/main.c
-	$(CC) -c ./src/main.c -o ./obj/main.o -std=c99
+	$(CC) -c ./src/main.c -o ./obj/main.o $(CFLAGS)
 
 clean:
 	rm ./obj/*.o
