@@ -1,7 +1,7 @@
-CC = mpicc
-CFLAGS = -g3 -O0 -std=gnu99 -lm 
+CC = gcc
+CFLAGS = -g3 -O0 -std=gnu99 -lm -msse
 
-all: MAIN 
+all: MAIN
 
 MAIN: ./obj/main.o
 	$(CC) ./obj/main.o -o ./bin/main $(CFLAGS)
