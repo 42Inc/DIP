@@ -25,7 +25,7 @@ public class WordCount {
         public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
             // Input: (key, value): (23, "Hello, World"), key -- offset in the file, value -- text line            
             // For each word in line
-            StringTokenizer itr = new StringTokenizer(value.toString());
+            StringTokenizer itr = new StringTokenizer(value.toString(), "\".,/\\;: #()");
             while (itr.hasMoreTokens()) {
                 word.set(itr.nextToken());
                 // Emit (word, 1)
