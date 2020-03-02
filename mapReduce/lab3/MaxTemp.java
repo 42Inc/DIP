@@ -23,7 +23,7 @@ public class MaxTemp {
         private Text word = new Text();
         private Text id = new Text();
         public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
-            // "id / timestamp / T" -> "id / timestamp / T if T > critical"
+            // "id / timestamp / T" -> "id timestamp,T" if T > critical
             String str = value.toString();
             String[] array = str.split(" / ");
             if (Double.parseDouble(array[2]) > 45) {
