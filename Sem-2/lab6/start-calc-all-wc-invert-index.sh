@@ -1,6 +1,6 @@
 #!/bin/sh
 if [ ! $# -eq 1 ]; then
-  printf "Usage: ./start-calc-invert-index.sh <REDUCER COUNT>\n"
+  printf "Usage: ./start-calc-all-wc-invert-index.sh <REDUCER COUNT>\n"
   exit 1
 fi
 
