@@ -16,20 +16,20 @@ if __name__ == "__main__":
             Top = []
             current_key = key
         elif current_key != key:
-            local_n = N
-            Top.sort(key=lambda x: int(x[1]), reverse=True)
-            if len(Top) < N:
-                local_n = len(Top)
+            # local_n = N
+            Top.sort(key=lambda x: x[0], reverse=True)
+            # if len(Top) < N:
+            local_n = len(Top)
             for i in range(local_n):
-                print '%s\t%s\t%s\t%s' % (42, current_key, Top[i][0], Top[i][1])
+                print '%s\t%s\t%s' % (Top[i][0], Top[i][1], current_key)
             current_key = key
             Top = []
         Top.append([word, count])
 
     if len(Top) > 0:
-        local_n = N
-        Top.sort(key=lambda x: int(x[1]), reverse=True)
-        if len(Top) < N:
-            local_n = len(Top)
+        # local_n = N
+        Top.sort(key=lambda x: x[0], reverse=True)
+        # if len(Top) < N:
+        local_n = len(Top)
         for i in range(local_n):
-            print '%s\t%s\t%s\t%s' % (42, current_key, Top[i][0], Top[i][1])
+            print '%s\t%s\t%s' % (Top[i][0], Top[i][1], current_key)

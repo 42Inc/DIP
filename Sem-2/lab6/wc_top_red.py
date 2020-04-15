@@ -6,23 +6,24 @@ if __name__ == "__main__":
     N = 20
     local_n = N
     current_key = None
+    current_word = None
 
     for line in sys.stdin:
         data = line.rstrip().split("\t")
-        key = data[1]
-        word = data[2]
-        count = data[3]
-        if current_key == None:
+        word = data[0]
+        count = data[1]
+        key = data[2]
+        if current_word == None:
             Top = []
-            current_key = key
-        elif current_key != key:
+            current_word = word
+        elif current_word != word:
             local_n = N
             Top.sort(key=lambda x: int(x[1]), reverse=True)
             if len(Top) < N:
                 local_n = len(Top)
             for i in range(local_n):
-                print '%s\t%s\t%s' % (current_key, Top[i][0], Top[i][1])
-            current_key = key
+                print '%s\t%s\t%s' % (Top[i][0], key, Top[i][1])
+            current_word = word
             Top = []
         Top.append([word, count])
 
@@ -32,4 +33,4 @@ if __name__ == "__main__":
         if len(Top) < N:
             local_n = len(Top)
         for i in range(local_n):
-            print '%s\t%s\t%s' % (current_key, Top[i][0], Top[i][1])
+            print '%s\t%s\t%s' % (Top[i][0], key, Top[i][1])
