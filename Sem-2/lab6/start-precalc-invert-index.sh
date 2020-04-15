@@ -1,8 +1,8 @@
 #!/bin/sh
-if [ ! $# -eq 1 ]; then
-  printf "Usage: ./start-precalc-invert-index.sh <INPUT HDFS PATH>\n"
-  exit 1
-fi
+# if [ ! $# -eq 1 ]; then
+#   printf "Usage: ./start-precalc-invert-index.sh <INPUT HDFS PATH>\n"
+#   exit 1
+# fi
 
 hdfs dfs -rm -r -f ./wiki/precalc
 hdfs dfs -test -d ./wiki
