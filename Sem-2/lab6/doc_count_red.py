@@ -6,7 +6,7 @@ current_key = None
 
 for line in sys.stdin:
     data = line.split('\t')
-    key = data[1]
+    key = data[0]
 
     if current_key != key:
         current_key = key

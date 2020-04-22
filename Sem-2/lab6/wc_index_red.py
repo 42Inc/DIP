@@ -16,7 +16,7 @@ for line in sys.stdin:
             current_count += count
         else:
             if current_word:
-                print '%s\t%s\t%s' % (key, current_word, current_count)
+                print '%s\t%s\t%s' % (current_key, current_word, current_count)
             current_count = count
             current_word = word
     else:
@@ -24,10 +24,10 @@ for line in sys.stdin:
             current_count += count
         else:
             if current_word:
-                print '%s\t%s\t%s' % (key, current_word, current_count)
+                print '%s\t%s\t%s' % (current_key, current_word, current_count)
             current_count = count
             current_word = word
         current_key = key
             
 
-print '%s\t%s\t%s' % (key, current_word, current_count)
+print '%s\t%s\t%s' % (current_key, current_word, current_count)
