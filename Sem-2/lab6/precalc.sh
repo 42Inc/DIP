@@ -1,6 +1,6 @@
 #!/bin/sh
 if [ ! $# -eq 1 ]; then
-  printf "Usage: ./start-precalc-invert-index.sh <INPUT HDFS PATH>\n"
+  printf "Usage: $(echo $0) <INPUT HDFS PATH>\n"
   exit 1
 fi
 

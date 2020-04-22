@@ -1,6 +1,6 @@
 #!/bin/sh
 if [ ! $# -eq 1 ]; then
-  printf "Usage: ./start-calc-index-wc-top.sh <REDUCER COUNT>\n"
+  printf "Usage: $(echo $0) <REDUCER COUNT>\n"
   exit 1
 fi
 
