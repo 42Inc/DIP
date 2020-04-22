@@ -14,7 +14,7 @@ hdfs dfs -test -d ./wiki/doc_count
 [ ! $? -eq 0 ] && hdfs dfs -mkdir ./wiki/doc_count
 
 hdfs dfs -test -f ./wiki/doc_count/output.dat
-[ $? -eq 0 ] && hdfs dfs -rm -f ./wiki/doc_count/*
+[ $? -eq 0 ] && hdfs dfs -rm -r -f ./wiki/doc_count/*
 
 hdfs dfs -cat ./wiki/wc/*  2>>/dev/null | \
 ./$1 | \

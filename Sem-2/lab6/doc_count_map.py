@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 import sys
-
+prev_key = None
 for line in sys.stdin:
     words = line.rstrip().lower().split()
     key = words[0].rstrip()
-    for word in range(1, len(words)):
+    if prev_key != key:
         print '%s\t%s' % (42, key)
+        prev_key = key
