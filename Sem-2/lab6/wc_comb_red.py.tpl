@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# coding=utf8
 import sys
 import numpy
 import re
@@ -6,7 +7,7 @@ import re
 N = 10
 
 docs_count = DOCUMENTS_COUNT
-mather_regex = r'^(MATCHER_REGEX)$'
+matcher_regex = r"^(MATCHER_REGEX)$"
 current_word = None
 current_count = 0
 current_key = None
@@ -19,6 +20,8 @@ match = None
 
 for line in sys.stdin:
     data = line.split('\t')
+    if len(data) < 3:
+        continue
     key = data[1]
     word = data[0]
     count = int(data[2])
@@ -57,7 +60,7 @@ for line in sys.stdin:
         # print(docs)
         # print(len(docs))
         match = None
-        match = re.match(mather_regex, current_word, 0);
+        match = re.match(matcher_regex, current_word, 0);
         if match == None:
             sys.stdout.write(str(current_word))
             sys.stdout.write("\t")
@@ -101,7 +104,7 @@ if N > len(docs):
     N = len(docs)
 # print(current_word, end='\t')
 match = None
-match = re.match(mather_regex, current_word, 0);
+match = re.match(matcher_regex, current_word, 0);
 if match == None:
     sys.stdout.write(str(current_word))
     sys.stdout.write("\t")
